@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import "./App.css";
 import PageNotFound from "./PageNotFound";
 
@@ -36,11 +36,11 @@ export default function Products() {
             {filteredProduct.map((product) => {
             return (
                 <div key={product.id} className="product">
-                <a href="/">
+                <Link to={`/${category}/${product.id}`}>
                     <img src={`/images/${product.image}`} alt={product.name} />
                     <h3>{product.name}</h3>
                     <p>${product.price}</p>
-                </a>
+                </Link>
                 </div>
             )})}
         </section>
